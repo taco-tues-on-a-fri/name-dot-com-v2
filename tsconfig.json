@@ -3,10 +3,11 @@
     "outDir": "dist",
 		"baseUrl": "./",
 		"paths": {
+			"@/*": ["./*"],
 			"@src/*": ["./src/*"],
-			"@root/*": ["./*"],
-			"@assets/*": ["./src/assets/*"],
-			"@utilities/*": ["./src/utilities/*"],
+			"@lib/*": ["./src/lib/*"],
+			"@public/*": ["./public/*"],
+			"@utilities/*": ["./src/lib/utilities/*"],
 			"@components/*": ["./src/components/*"]
 		},
 		"alwaysStrict": true,

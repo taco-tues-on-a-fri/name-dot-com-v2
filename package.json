@@ -1,7 +1,7 @@
 {
-  "name": "react-typescript-boilerplate",
-  "version": "1.0.0",
-  "description": "React Typescript Boilerplate",
+  "name": "name-dot-com-v2",
+  "version": "0.0.1",
+  "description": "Name Dot Com",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taco-tues-on-a-fri/react-typescript-boilerplate.git"
+    "url": "git+https://github.com/taco-tues-on-a-fri/name-dot-com-v2.git"
   },
   "author": "",
   "license": "MIT",
@@ -99,11 +99,10 @@
     ],
     "moduleNameMapper": {
       "^@src/(.*)$": "<rootDir>/src/$1",
-      "^@root/(.*)$": "<rootDir>/$1",
-      "^@assets/(.*)$": "<rootDir>/src/assets/$1",
-      "^@utilities/(.*)$": "<rootDir>/src/utilities/$1",
+      "^@/(.*)$": "<rootDir>/$1",
+      "^@public/(.*)$": "<rootDir>/public/$1",
+      "^@utilities/(.*)$": "<rootDir>/src/lib/utilities/$1",
       "^@components/(.*)$": "<rootDir>/src/components/$1",
-      "^@containers/(.*)$": "<rootDir>/src/containers/$1",
       "\\.(css|less|sass|scss)$": "<rootDir>/test-config/StyleMock.js",
       "\\.(jpg|jpeg|png|gif|ico|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test-config/FileMock.js"
     },

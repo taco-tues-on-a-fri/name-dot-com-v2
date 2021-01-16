@@ -13,8 +13,9 @@ const PATH = {
 	root: resolve('./'),
 	dist: resolve('./dist'),
 	src: resolve('./src'),
-	assets: resolve('./src/assets'),
-	utilities: resolve('./src/utilities'),
+	lib: resolve('./src/lib'),
+	public: resolve('./public'),
+	utilities: resolve('./src/lib/utilities'),
 	components: resolve('./src/components'),
 	nodeModules: resolve('./node_modules')
 }
@@ -82,7 +83,7 @@ module.exports = {
     isDevelopment && new ReactRefreshPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
-      template: './src/index.html',
+      template: './public/index.html',
       inject: true,
       ...(isDevelopment ? {} : { minify: minifyConfig })
     }),
@@ -94,8 +95,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/assets/',
-          to: 'assets/'
+          from: 'public/',
+          to: 'public/'
         }
       ]
     }),
@@ -121,10 +122,11 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx'],
     alias: {
       '@src': PATH.src,
-      '@root': PATH.root,
-      '@assets': PATH.assets,
+      '@': PATH.root,
+      '@lib': PATH.lib,
       '@utilities': PATH.utilities,
       '@components': PATH.components,
+      '@public': PATH.public,
       },
     modules: ['src', 'node_modules']
   },
