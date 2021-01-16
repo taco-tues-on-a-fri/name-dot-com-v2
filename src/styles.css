@@ -1,0 +1,23 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+:root {
+  font-size: 62.5%;
+  font-weight: 200;
+  --font-size--small: 1.4rem; /* 14px */
+  --font-size--default: 1.6rem; /* 16px */
+  --font-size--large: 2.4rem; /* 24px */
+  --light-cyan: #9bffff;
+  --light-cyan-blue: #c0d1da;
+  --dark-cyan-blue-1: #1a2537;
+  --dark-cyan-blue-2: #202b3c;
+  --dark-cyan-blue-3: #233541;
+  --dark-background: #283344;
+}
+
+background-image: linear-gradient(rgb(26, 37, 55) 0px, rgb(54, 64, 81) 100%);
