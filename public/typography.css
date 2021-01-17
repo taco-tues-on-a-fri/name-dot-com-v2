@@ -22,3 +22,11 @@ body {
 .font-size--large {
   font-size: var(--font-size--large);
 }
+
+h1 {
+  font-size: var(--font-size--large); 
+}
+
+p {
+  font-size: var(--font-size--default); 
+}
