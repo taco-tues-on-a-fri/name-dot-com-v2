@@ -27,7 +27,7 @@
 		"moduleResolution": "node",
 		"noEmit": false,
     "noEmitOnError": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
