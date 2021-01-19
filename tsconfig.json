@@ -4,11 +4,12 @@
 		"baseUrl": "./",
 		"paths": {
 			"@/*": ["./*"],
-			"@src/*": ["./src/*"],
+			"@components/*": ["./src/components/*"],
+			"@i18n/*": ["./src/i18n/*"],
 			"@lib/*": ["./src/lib/*"],
 			"@public/*": ["./public/*"],
+			"@src/*": ["./src/*"],
 			"@utilities/*": ["./src/lib/utilities/*"],
-			"@components/*": ["./src/components/*"]
 		},
 		"alwaysStrict": true,
 		"allowSyntheticDefaultImports": true,

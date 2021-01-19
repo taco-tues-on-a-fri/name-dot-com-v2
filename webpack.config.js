@@ -11,13 +11,14 @@ const resolve = path.resolve.bind(__dirname)
 
 const PATH = {
 	root: resolve('./'),
-	dist: resolve('./dist'),
-	src: resolve('./src'),
-	lib: resolve('./src/lib'),
-	public: resolve('./public'),
-	utilities: resolve('./src/lib/utilities'),
 	components: resolve('./src/components'),
-	nodeModules: resolve('./node_modules')
+	dist: resolve('./dist'),
+	i18n: resolve('./src/i18n'),
+	lib: resolve('./src/lib'),
+	nodeModules: resolve('./node_modules'),
+	public: resolve('./public'),
+	src: resolve('./src'),
+	utilities: resolve('./src/lib/utilities'),
 }
 
 const tsConfig = {
@@ -121,12 +122,13 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
     alias: {
-      '@src': PATH.src,
       '@': PATH.root,
-      '@lib': PATH.lib,
-      '@utilities': PATH.utilities,
       '@components': PATH.components,
+      '@i18n': PATH.i18n,
+      '@lib': PATH.lib,
       '@public': PATH.public,
+      '@src': PATH.src,
+      '@utilities': PATH.utilities,
       },
     modules: ['src', 'node_modules']
   },
