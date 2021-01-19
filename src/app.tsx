@@ -9,6 +9,7 @@ import '@/public/colors.css'
 import '@/public/typography.css'
 
 // const LazyComponent = lazy(() => import('./components/Lazy/Lazy'))
+import '@i18n/config'
 
 const App: FC = () => {
   return (
