@@ -28,15 +28,22 @@
     "jest"
   ],
   "rules": {
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["off"],
-    "@typescript-eslint/indent": ["off"],
-    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/indent": [
+      "off"
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-shadow": [
+      "off"
+    ],
     "@typescript-eslint/semi": [
       "error",
       "never"
     ],
     "arrow-body-style": "off",
+    "arrow-parens": [
+      "warn",
+      "as-needed"
+    ],
     "eol-last": [
       "error",
       "never"
@@ -50,6 +57,10 @@
         "beforeColon": false
       }
     ],
+    "max-len:": ["off", { "comments": 500, "ignoreComments": true }],
+    "no-console": "off",
+    "no-multiple-empty-lines": "off",
+    "no-shadow": "off",
     "no-tabs": "off",
     "operator-linebreak": [
       "error",
@@ -60,10 +71,7 @@
         }
       }
     ],
-    "no-multiple-empty-lines": "off",
-    "no-console": "off",
     "padded-blocks": "off",
-    "max-len:": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/display-name": "off",
     "react/jsx-curly-spacing": [
