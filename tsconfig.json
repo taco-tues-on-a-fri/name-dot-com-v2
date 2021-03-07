@@ -29,7 +29,7 @@
 		"noEmit": false,
     "noEmitOnError": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": false,
 		"noImplicitReturns": true,

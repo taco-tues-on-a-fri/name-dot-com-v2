@@ -10,7 +10,7 @@ type GitHubProps = {
   id: string;
 }
 
-type Match = {
+export type Match = {
   match: match<GitHubProps>;
 }
 

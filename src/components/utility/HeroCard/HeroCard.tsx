@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './HeroCard.styles.css'
 import { HeroCardProps } from './types'
 
-const gitHubHref = 'https://github.com/taco-tues-on-a-fri'
+const GITHUB_PROFILE_URL = 'https://github.com/taco-tues-on-a-fri'
 
 export const HeroCard: FC<HeroCardProps> = ({ header, subheaderLine1, subheaderLine2 }) => {
   return (
@@ -24,7 +24,7 @@ export const HeroCard: FC<HeroCardProps> = ({ header, subheaderLine1, subheaderL
         >
           Snippets
         </Link>
-        <a href={ gitHubHref } className="hero-card__button">
+        <a href={ GITHUB_PROFILE_URL } className="hero-card__button">
           Github
         </a>
       </div>

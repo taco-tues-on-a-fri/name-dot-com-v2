@@ -71,6 +71,7 @@
         }
       }
     ],
+    "no-return-assign": "off",
     "padded-blocks": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/display-name": "off",
