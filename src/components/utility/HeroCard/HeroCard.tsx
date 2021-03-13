@@ -8,23 +8,17 @@ const GITHUB_PROFILE_URL = 'https://github.com/taco-tues-on-a-fri'
 export const HeroCard: FC<HeroCardProps> = ({ header, subheaderLine1, subheaderLine2 }) => {
   return (
     <div className="hero-card__container">
-      <h1>{ header }</h1>
-      { subheaderLine1 && <p>{ subheaderLine1 }</p>}
-      { subheaderLine2 && <p>{ subheaderLine2 }</p>}
+      <h1>{header}</h1>
+      {subheaderLine1 && <p>{subheaderLine1}</p>}
+      {subheaderLine2 && <p>{subheaderLine2}</p>}
       <div className="hero-card__button-container">
-        <Link
-          to="/about"
-          className="hero-card__button"
-        >
+        <Link to="/about" className="hero-card__button">
           About me
         </Link>
-        <Link
-          to="/snippets"
-          className="hero-card__button"
-        >
+        <Link to="/snippets" className="hero-card__button">
           Snippets
         </Link>
-        <a href={ GITHUB_PROFILE_URL } className="hero-card__button">
+        <a href={GITHUB_PROFILE_URL} className="hero-card__button">
           Github
         </a>
       </div>

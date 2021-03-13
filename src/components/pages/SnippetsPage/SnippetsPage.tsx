@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HeroCard } from '@components/utility/HeroCard'
-import './HomePage.styles.css'
+import './SnippetsPage.styles.css'
 
-const heroHeader = "I'm Michael Jadick"
-const heroSubheaderLine1 = "I'm a software engineer specializing in React and Typescript."
-const heroSubheaderLine2 = "This website is a collection of the things I've cultivated and created over the years."
+const heroHeader = 'Snippets'
+const heroSubheaderLine1 = null
+const heroSubheaderLine2 = null
 
-export const HomePage: FC = () => {
+export const SnippetsPage: FC = () => {
   const { t } = useTranslation()
 
   return (

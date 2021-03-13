@@ -1,14 +1,14 @@
 export type NavBarProps = {
-  toggleTheme: () => void;
+  toggleTheme: () => void
 }
 
 export type NavItemConfigObject = {
-  id: string;
-  path: string;
-  label: string;
-  href?: string;
+  id: string
+  path: string
+  label: string
+  href?: string
 }
 
 export type CreateNavItemProps = {
-  configArrayOfObjects: NavItemConfigObject[];
+  configArrayOfObjects: NavItemConfigObject[]
 }

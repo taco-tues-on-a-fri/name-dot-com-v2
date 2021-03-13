@@ -13,8 +13,11 @@ import '@/public/typography.css'
 
 import '@i18n/config'
 
-const { GitHubPage } = lazyImport(() => import('@components/pages/GitHubPage'), 'GitHubPage')
+const { AboutPage } = lazyImport(() => import('@components/pages/AboutPage'), 'AboutPage')
+const { ContactPage } = lazyImport(() => import('@components/pages/ContactPage'), 'ContactPage')
 const { HomePage } = lazyImport(() => import('@components/pages/HomePage'), 'HomePage')
+const { ProjectsPage } = lazyImport(() => import('@components/pages/ProjectsPage'), 'ProjectsPage')
+const { SnippetsPage } = lazyImport(() => import('@components/pages/SnippetsPage'), 'SnippetsPage')
 
 const App: FC = () => {
   const [theme, setTheme] = useState('light')
@@ -33,15 +36,18 @@ const App: FC = () => {
           setTheme,
         }}
       >
-        <NavBar toggleTheme={ toggleTheme } />
-          <div className="page-container">
-            <Suspense fallback={ <Loading /> }>
-              <Switch>
-                <Route exact path="/" component={ HomePage } />
-                <Route path="/:id" component={ GitHubPage } />
-              </Switch>
-            </Suspense>
-          </div>
+        <NavBar toggleTheme={toggleTheme} />
+        <div className="page-container">
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/projects" component={ProjectsPage} />
+              <Route exact path="/snippets" component={SnippetsPage} />
+            </Switch>
+          </Suspense>
+        </div>
       </ThemeContext.Provider>
     </BrowserRouter>
   )

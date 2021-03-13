@@ -11,20 +11,29 @@ const navConfigArrayOfObjects = [
     id: 'nav-item__home',
     path: '/',
     label: 'Home',
+    href: undefined,
   },
   {
     id: 'nav-item__about',
     path: '/about',
     label: 'About Me',
+    href: undefined,
+  },
+  {
+    id: 'nav-item__projects',
+    path: '/projects',
+    label: 'Projects',
+    href: undefined,
   },
   {
     id: 'nav-item__snippets',
     path: '/snippets',
     label: 'Snippets',
+    href: undefined,
   },
   {
     id: 'nav-item__github',
-    path: '/null',
+    path: '',
     label: 'GitHub',
     href: GITHUB_PROFILE_URL,
   },
@@ -32,6 +41,7 @@ const navConfigArrayOfObjects = [
     id: 'nav-item__contact',
     path: '/contact',
     label: 'Contact',
+    href: undefined,
   },
 ]
 
@@ -43,19 +53,17 @@ const CreateNavItem: FC<CreateNavItemProps> = ({ configArrayOfObjects }) => {
   return (
     <Fragment>
       {configArrayOfObjects.map(configItem => {
-        const {
-          id, path, label, href,
-        } = configItem || {}
+        const { id, path, label, href } = configItem || {}
 
         return (
-          <li key={ id }>
+          <li key={id}>
             {!href && (
-              <NavLink to={ path } exact activeStyle={ activeStyle } className="nav-bar__link-item">
+              <NavLink to={path} exact activeStyle={activeStyle} className="nav-bar__link-item">
                 {label}
               </NavLink>
             )}
             {href && (
-              <a href={ href } className="nav-bar__link-item">
+              <a href={href} className="nav-bar__link-item">
                 {label}
               </a>
             )}
@@ -72,13 +80,11 @@ export const NavBar: FC<NavBarProps> = ({ toggleTheme }) => {
   return (
     <nav className="nav-bar__container">
       <div className="nav-bar__logo-container">
-        <span>
-          Michael Jadick
-        </span>
+        <span>Michael Jadick</span>
       </div>
       <div className="nav-bar__link-container">
         <ul>
-          <CreateNavItem configArrayOfObjects={ navConfigArrayOfObjects } />
+          <CreateNavItem configArrayOfObjects={navConfigArrayOfObjects} />
         </ul>
       </div>
     </nav>
