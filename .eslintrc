@@ -45,8 +45,8 @@
       "as-needed"
     ],
     "eol-last": [
-      "error",
-      "never"
+      "warn",
+      "always"
     ],
     "import/prefer-default-export": "off",
     "indent": "off",
@@ -62,6 +62,13 @@
     "no-multiple-empty-lines": "off",
     "no-shadow": "off",
     "no-tabs": "off",
+    "object-curly-newline": [
+      "off", {
+      "ObjectExpression": "always",
+      "ObjectPattern": { "multiline": true, "minProperties": 3},
+      "ImportDeclaration": "never",
+      "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+  }],
     "operator-linebreak": [
       "error",
       "after",
@@ -76,7 +83,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/display-name": "off",
     "react/jsx-curly-spacing": [
-      2,
+      "off",
       {
         "spacing": {
           "objectLiterals": "never"
