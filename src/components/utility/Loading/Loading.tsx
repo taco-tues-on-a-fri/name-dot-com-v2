@@ -2,8 +2,8 @@ import React, { FC, useEffect, useState } from 'react'
 import './styles.css'
 
 export type LoadingProps = {
-  text?: string;
-  speed?: number;
+  text?: string
+  speed?: number
 }
 
 export const Loading: FC<LoadingProps> = ({ text = 'Loading', speed = 300 }) => {
@@ -19,9 +19,5 @@ export const Loading: FC<LoadingProps> = ({ text = 'Loading', speed = 300 }) => 
     return () => window.clearInterval(id)
   }, [text, speed])
 
-  return (
-    <p className="loading__text">
-      {content}
-    </p>
-  )
+  return <p className="loading__text">{content}</p>
 }
