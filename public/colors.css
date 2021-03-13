@@ -5,8 +5,11 @@
   --dark-cyan-blue-2: #202b3c;
   --dark-cyan-blue-3: #233541;
   --dark-background: #283344;
+  --dark__background--blue: #4a4e69;
+  --dark__accent--grey: #9a8c98;
 }
 
 body {
-  background-color: var(--dark-background);
+  /* background-color: var(--dark__background--blue); */
+  background-color: #fff;
 }
