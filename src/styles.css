@@ -29,6 +29,13 @@ body {
   /* margin: 0 auto; */
 }
 
+.page__hero-section {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
 .waves-background {
   position: absolute;
   right: 0;
