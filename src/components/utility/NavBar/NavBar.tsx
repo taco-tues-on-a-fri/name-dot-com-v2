@@ -46,7 +46,8 @@ const navConfigArrayOfObjects = [
 ]
 
 const activeStyle = {
-  color: 'rgb(187, 46,31)',
+  color: '#46C6EB',
+  fontWeight: 700,
 }
 
 const CreateNavItem: FC<CreateNavItemProps> = ({ configArrayOfObjects }) => {

@@ -1,7 +1,6 @@
 .home-page__hero-section {
   align-items: center;
-  background-color: #283dbb;
   display: flex;
   justify-content: center;
-  padding: 1rem 0;
+  padding: 10% 0;
 }

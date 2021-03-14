@@ -16,10 +16,43 @@ body {
   --dark-cyan-blue-2: #202b3c;
   --dark-cyan-blue-3: #233541;
   --dark-background: #283344;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
 }
 
 /* background-image: linear-gradient(rgb(26, 37, 55) 0px, rgb(54, 64, 81) 100%); */
 
 .page-container {
   /* margin: 1rem; */
+  /* max-width: 1440px; */
+  /* margin: 0 auto; */
 }
+
+.waves-background {
+  position: absolute;
+  right: 0;
+  top: 0;
+  /* min-height: 874px; */
+  height: 100vh;
+  /* transition: height 1s; */
+  transition: height 400ms ease 0ms;
+  /* width: 200vw; */
+  z-index: -1;
+}
+
+@media screen and (min-width: 992px) {
+  .page-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .waves-background {
+    min-height: 874px;
+  }
+}
+/* @media screen and (min-width: 668px) {
+  .waves-background {
+    top: -2vh;
+    width: 125vw;
+  }
+} */

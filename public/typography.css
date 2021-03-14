@@ -10,12 +10,11 @@ html {
 }
 
 body {
-  /* font-family: 'Work Sans', sans-serif; */
-  font-family: 'Inter', sans-serif;
+  font-family: "Dosis", sans-serif;
+  /* font-family: 'Inter', sans-serif; */
 }
 
 :root {
-  /* font-size: 62.5%; */
   font-size: min(max(1rem, 4vw), 22px);
   font-weight: 200;
   /* color: var(--text-light-cyan); */
