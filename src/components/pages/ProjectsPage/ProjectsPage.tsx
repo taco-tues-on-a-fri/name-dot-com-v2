@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HeroCard } from '@components/utility/HeroCard'
 import './ProjectsPage.styles.css'
+import { ProjectCards } from './ProjectCards'
 
 const heroHeader = 'Projects'
 const heroSubheaderLine1 = null
@@ -12,7 +13,7 @@ export const ProjectsPage: FC = () => {
 
   return (
     <section className="home-page__hero-section">
-      <HeroCard header={heroHeader} subheaderLine1={heroSubheaderLine1} subheaderLine2={heroSubheaderLine2} />
+      <ProjectCards />
     </section>
   )
 }

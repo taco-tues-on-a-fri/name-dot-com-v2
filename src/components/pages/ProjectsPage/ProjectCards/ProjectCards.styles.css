@@ -1,0 +1,5 @@
+.project-cards__container {
+  position:relative;
+  background-color: grey;
+  padding: 1rem;
+}
