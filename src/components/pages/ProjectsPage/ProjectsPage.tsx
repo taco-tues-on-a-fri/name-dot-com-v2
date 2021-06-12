@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HeroCard } from '@components/utility/HeroCard'
-import './ProjectsPage.styles.css'
+// import './ProjectsPage.styles.css'
 import { ProjectCards } from './ProjectCards'
 
 const heroHeader = 'Projects'

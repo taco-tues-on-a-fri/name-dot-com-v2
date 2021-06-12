@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import './ProjectCards.styles.css'
+// import './ProjectCards.styles.css'
 
 export type CardProps = {
   configObject: {

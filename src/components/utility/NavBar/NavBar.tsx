@@ -2,7 +2,7 @@ import React, { FC, Fragment, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ThemeContext } from '@src/contexts/theme/theme'
 import { GITHUB_PROFILE_URL } from '@lib/constants'
-import './NavBar.styles.css'
+// import './NavBar.styles.css'
 import { NavBarProps, CreateNavItemProps } from './types'
 
 

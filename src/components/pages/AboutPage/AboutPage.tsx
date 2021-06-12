@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HeroCard } from '@components/utility/HeroCard'
-import './AboutPage.styles.css'
+// import './AboutPage.styles.css'
 import stringJson from '@i18n/locales/en/about.json'
 
 export const AboutPage: FC = () => {

@@ -1,6 +1,6 @@
 import React, { FC, Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import './HeroCard.styles.css'
+// import './HeroCard.styles.css'
 import { HeroCardProps, CreateButtonsProps } from './types'
 
 const CreateButtons: FC<CreateButtonsProps> = ({ configArrayOfObjects }) => {
