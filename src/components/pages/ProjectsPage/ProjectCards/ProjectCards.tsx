@@ -1,21 +1,58 @@
 import React, { FC } from 'react'
-import { useTranslation } from 'react-i18next'
-import { HeroCard } from '@components/utility/HeroCard'
-// import './ProjectsPage.styles.css'
-import { ProjectCards } from './ProjectCards'
+// import './ProjectCards.styles.css'
 
-const heroHeader = 'Projects'
-const heroSubheaderLine1 = null
-const heroSubheaderLine2 = null
+export type CardProps = {
+  configObject: {
+    href: string
+    header: string
+    subheader: string
+    body: string
+    imageUrl: string
+  }
+}
 
-export const ProjectsPage: FC = () => {
-  const { t } = useTranslation()
-
+const Card: FC<CardProps> = ({ configObject }) => {
+  const { href, header, subheader, body, imageUrl } = configObject
   return (
-    <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-      <div className="absolute inset-0">
-        <div className="bg-white h-1/3 sm:h-2/3"></div>
+    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+      <div className="flex-shrink-0">
+        <img className="h-48 w-full object-cover" src={imageUrl} alt="" />
       </div>
+
+      <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+        <div className="flex-1">
+          <a href={href} className="block mt-2">
+            <p className="text-xl font-semibold text-gray-900">{header}</p>
+            <p className="mt-3 text-base text-gray-500">{body}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const exampleConfig = {
+  href:
+    'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+  header: 'Improve your customer experience',
+  subheader: 'Case Study',
+  body:
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
+  imageUrl:
+    'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+}
+export const ProjectCards: FC = () => {
+  return <Card configObject={exampleConfig} />
+}
+
+//|------------------------------------------------------------------------ V0
+export const ProjectCardsV0: FC = () => {
+  return (
+    <div className="project-cards__container">
+      <div className="absolute inset-0">
+        <div className="bg-white h-1/3 sm:h-2/3" />
+      </div>
+
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center">
           <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">From the blog</h2>
@@ -23,15 +60,17 @@ export const ProjectsPage: FC = () => {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
           </p>
         </div>
+
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
             <div className="flex-shrink-0">
               <img
                 className="h-48 w-full object-cover"
-                src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
+                src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
                 alt=""
               />
             </div>
+
             <div className="flex-1 bg-white p-6 flex flex-col justify-between">
               <div className="flex-1">
                 <p className="text-sm font-medium text-indigo-600">
@@ -47,17 +86,19 @@ export const ProjectsPage: FC = () => {
                   </p>
                 </a>
               </div>
+
               <div className="mt-6 flex items-center">
                 <div className="flex-shrink-0">
                   <a href="#">
                     <span className="sr-only">Roel Aufderehar</span>
                     <img
                       className="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
                   </a>
                 </div>
+
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">
                     <a href="#" className="hover:underline">
@@ -78,10 +119,11 @@ export const ProjectsPage: FC = () => {
             <div className="flex-shrink-0">
               <img
                 className="h-48 w-full object-cover"
-                src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
+                src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
                 alt=""
               />
             </div>
+
             <div className="flex-1 bg-white p-6 flex flex-col justify-between">
               <div className="flex-1">
                 <p className="text-sm font-medium text-indigo-600">
@@ -106,7 +148,7 @@ export const ProjectsPage: FC = () => {
                     <span className="sr-only">Brenna Goyette</span>
                     <img
                       className="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
                   </a>
@@ -131,7 +173,7 @@ export const ProjectsPage: FC = () => {
             <div className="flex-shrink-0">
               <img
                 className="h-48 w-full object-cover"
-                src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
+                src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
                 alt=""
               />
             </div>
@@ -156,7 +198,7 @@ export const ProjectsPage: FC = () => {
                     <span className="sr-only">Daniela Metz</span>
                     <img
                       className="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       alt=""
                     />
                   </a>
@@ -179,14 +221,5 @@ export const ProjectsPage: FC = () => {
         </div>
       </div>
     </div>
-  )
-}
-export const ProjectsPage01: FC = () => {
-  const { t } = useTranslation()
-
-  return (
-    <section className="home-page__hero-section">
-      <ProjectCards />
-    </section>
   )
 }

@@ -47,10 +47,11 @@ const htmlConfig = {
 }
 
 const cssConfig = {
-	test: /\.css$/,
+  test: /\.css$/i,
 	use: [
     'style-loader',
     'css-loader',
+    'postcss-loader',
 	]
 }
 
@@ -111,7 +112,7 @@ module.exports = {
   devtool: isDevelopment ? 'eval-source-map' : false,
   devServer: {
     hot: true,
-    noInfo: true,
+    noInfo: false,
     contentBase: './dist',
     historyApiFallback: true
   },

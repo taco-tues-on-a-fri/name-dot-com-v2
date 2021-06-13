@@ -6,11 +6,12 @@ import { lazyImport } from '@utilities/lazyImport'
 import { Loading } from '@components/utility/Loading'
 import { NavBar } from '@components/utility/NavBar/NavBar'
 
-import 'styles.css'
-import '@/public/reset.css'
-import '@/public/colors.css'
-import '@/public/typography.css'
+// import 'styles.css'
+// import '@/public/reset.css'
+// import '@/public/colors.css'
+// import '@/public/typography.css'
 
+import 'tailwindcss/tailwind.css'
 import '@i18n/config'
 
 const { AboutPage } = lazyImport(() => import('@components/pages/AboutPage'), 'AboutPage')
