@@ -39,11 +39,11 @@ const App: FC = () => {
       >
         <NavBar toggleTheme={toggleTheme} />
         <div className="page-container">
-          <img
+          {/* <img
             alt="wave background"
             className="waves-background"
             src="https://sticky-haircut.s3.us-east-2.amazonaws.com/static/bk/cerulean-wave.svg"
-          />
+          /> */}
           <Suspense fallback={<Loading />}>
             <Switch>
               <Route exact path="/" component={HomePage} />
