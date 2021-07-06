@@ -2,9 +2,8 @@ import React, { FC, Fragment, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ThemeContext } from '@src/contexts/theme/theme'
 import { GITHUB_PROFILE_URL } from '@lib/constants'
-// import './NavBar.styles.css'
 import { NavBarProps, CreateNavItemProps } from './types'
-
+import './NavBar.styles.css'
 
 const navConfigArrayOfObjects = [
   {
@@ -45,10 +44,8 @@ const navConfigArrayOfObjects = [
   },
 ]
 
-const activeStyle = {
-  color: '#46C6EB',
-  fontWeight: 700,
-}
+const defaultClassName = 'nav-link nav-link--default'
+const activeClassName = 'nav-link--active'
 
 const CreateNavItem: FC<CreateNavItemProps> = ({ configArrayOfObjects }) => {
   return (
@@ -59,12 +56,12 @@ const CreateNavItem: FC<CreateNavItemProps> = ({ configArrayOfObjects }) => {
         return (
           <li key={id}>
             {!href && (
-              <NavLink to={path} exact activeStyle={activeStyle} className="nav-bar__link-item">
+              <NavLink to={path} exact activeClassName={activeClassName} className={defaultClassName}>
                 {label}
               </NavLink>
             )}
             {href && (
-              <a href={href} className="nav-bar__link-item">
+              <a href={href} className={defaultClassName}>
                 {label}
               </a>
             )}
@@ -75,28 +72,28 @@ const CreateNavItem: FC<CreateNavItemProps> = ({ configArrayOfObjects }) => {
   )
 }
 
+
 export const NavBar: FC<NavBarProps> = ({ toggleTheme }) => {
   const themeContext = useContext(ThemeContext)
 
   return (
-    <nav className="nav-bar__container">
-      <div className="nav-bar__logo-container">
-        <span>Michael Jadick</span>
-      </div>
-      <div className="nav-bar__link-container">
-        <ul>
-          <CreateNavItem configArrayOfObjects={navConfigArrayOfObjects} />
-        </ul>
-      </div>
-    </nav>
+    <header>
+      <nav className="bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <div className="flex-shrink-0">
+                <p className="nav-brand">Michael Jadick</p>
+              </div>
+              <div className="sm:block sm:ml-6">
+                <ul className="flex space-x-4">
+                  <CreateNavItem configArrayOfObjects={navConfigArrayOfObjects} />
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
   )
 }
-
-// <button
-// style={{ fontSize: 30 }}
-// className="btn-clear"
-// onClick={ toggleTheme }
-// type="button"
-// >
-// {themeContext.theme === 'light' ? '🔦' : '💡'}
-// </button>
