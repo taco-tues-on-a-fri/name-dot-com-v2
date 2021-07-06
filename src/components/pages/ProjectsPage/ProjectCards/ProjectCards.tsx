@@ -1,224 +1,62 @@
 import React, { FC } from 'react'
-// import './ProjectCards.styles.css'
+import './ProjectCards.styles.css'
+
+export type ProjectCardsProps = {
+  configJson: ProjectConfig
+}
+export type ProjectObject = {
+  id: string
+  hrefDemo: string
+  hrefRepo: string
+  heading: string
+  body: string
+  imageUrl: string
+  imageAlt: string
+}
+export type ProjectConfig = {
+  projects: ProjectObject[]
+}
 
 export type CardProps = {
-  configObject: {
-    href: string
-    header: string
-    subheader: string
-    body: string
-    imageUrl: string
-  }
+  configObject: ProjectObject
 }
 
 const Card: FC<CardProps> = ({ configObject }) => {
-  const { href, header, subheader, body, imageUrl } = configObject
+  const { hrefDemo, hrefRepo, heading, body, imageAlt, imageUrl } = configObject
   return (
-    <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+    <div className="project-card">
       <div className="flex-shrink-0">
-        <img className="h-48 w-full object-cover" src={imageUrl} alt="" />
+        <a target="_blank" rel="noopener noreferrer" href={hrefDemo}>
+          <img className="project-card--image" src={imageUrl} alt={imageAlt} />
+        </a>
       </div>
-
-      <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+      <div className="project-card--content">
         <div className="flex-1">
-          <a href={href} className="block mt-2">
-            <p className="text-xl font-semibold text-gray-900">{header}</p>
-            <p className="mt-3 text-base text-gray-500">{body}</p>
-          </a>
+          <p className="project-card--content--heading">{heading}</p>
+          <p className="project-card--content--body">{body}</p>
+          <div className="flex space-x-2">
+            <p className="project-card--content--link">
+              <a href={hrefDemo}>Demo</a>
+            </p>
+            <p className="project-card--content--link">
+              <a href={hrefRepo}>Repo</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-const exampleConfig = {
-  href:
-    'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-  header: 'Improve your customer experience',
-  subheader: 'Case Study',
-  body:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
-  imageUrl:
-    'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
-}
-export const ProjectCards: FC = () => {
-  return <Card configObject={exampleConfig} />
-}
+export const ProjectCards: FC<ProjectCardsProps> = ({ configJson }) => {
+  const { projects } = configJson
 
-//|------------------------------------------------------------------------ V0
-export const ProjectCardsV0: FC = () => {
   return (
-    <div className="project-cards__container">
-      <div className="absolute inset-0">
-        <div className="bg-white h-1/3 sm:h-2/3" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto">
-        <div className="text-center">
-          <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">From the blog</h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
-          </p>
-        </div>
-
-        <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-          <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-            <div className="flex-shrink-0">
-              <img
-                className="h-48 w-full object-cover"
-                src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                alt=""
-              />
-            </div>
-
-            <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-              <div className="flex-1">
-                <p className="text-sm font-medium text-indigo-600">
-                  <a href="#" className="hover:underline">
-                    Article
-                  </a>
-                </p>
-                <a href="#" className="block mt-2">
-                  <p className="text-xl font-semibold text-gray-900">Boost your conversion rate</p>
-                  <p className="mt-3 text-base text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut
-                    atque fuga culpa, similique sequi cum eos quis dolorum.
-                  </p>
-                </a>
-              </div>
-
-              <div className="mt-6 flex items-center">
-                <div className="flex-shrink-0">
-                  <a href="#">
-                    <span className="sr-only">Roel Aufderehar</span>
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </a>
-                </div>
-
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-900">
-                    <a href="#" className="hover:underline">
-                      Roel Aufderehar
-                    </a>
-                  </p>
-                  <div className="flex space-x-1 text-sm text-gray-500">
-                    <time dateTime="2020-03-16">Mar 16, 2020</time>
-                    <span aria-hidden="true">&middot;</span>
-                    <span>6 min read</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-            <div className="flex-shrink-0">
-              <img
-                className="h-48 w-full object-cover"
-                src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                alt=""
-              />
-            </div>
-
-            <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-              <div className="flex-1">
-                <p className="text-sm font-medium text-indigo-600">
-                  <a href="#" className="hover:underline">
-                    Video
-                  </a>
-                </p>
-                <a href="#" className="block mt-2">
-                  <p className="text-xl font-semibold text-gray-900">
-                    How to use search engine optimization to drive sales
-                  </p>
-                  <p className="mt-3 text-base text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat
-                    doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo
-                    laudantium.
-                  </p>
-                </a>
-              </div>
-              <div className="mt-6 flex items-center">
-                <div className="flex-shrink-0">
-                  <a href="#">
-                    <span className="sr-only">Brenna Goyette</span>
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-900">
-                    <a href="#" className="hover:underline">
-                      Brenna Goyette
-                    </a>
-                  </p>
-                  <div className="flex space-x-1 text-sm text-gray-500">
-                    <time dateTime="2020-03-10">Mar 10, 2020</time>
-                    <span aria-hidden="true">&middot;</span>
-                    <span>4 min read</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-            <div className="flex-shrink-0">
-              <img
-                className="h-48 w-full object-cover"
-                src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                alt=""
-              />
-            </div>
-            <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-              <div className="flex-1">
-                <p className="text-sm font-medium text-indigo-600">
-                  <a href="#" className="hover:underline">
-                    Case Study
-                  </a>
-                </p>
-                <a href="#" className="block mt-2">
-                  <p className="text-xl font-semibold text-gray-900">Improve your customer experience</p>
-                  <p className="mt-3 text-base text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae
-                    magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.
-                  </p>
-                </a>
-              </div>
-              <div className="mt-6 flex items-center">
-                <div className="flex-shrink-0">
-                  <a href="#">
-                    <span className="sr-only">Daniela Metz</span>
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixqx=Qh1LtC5D0g&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div className="ml-3">
-                  <p className="text-sm font-medium text-gray-900">
-                    <a href="#" className="hover:underline">
-                      Daniela Metz
-                    </a>
-                  </p>
-                  <div className="flex space-x-1 text-sm text-gray-500">
-                    <time dateTime="2020-02-12">Feb 12, 2020</time>
-                    <span aria-hidden="true">&middot;</span>
-                    <span>11 min read</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="relative max-w-7xl mx-auto">
+      <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+        {projects.map(projectObject => {
+          return <Card key={projectObject.id} configObject={projectObject} />
+        })}
       </div>
     </div>
   )

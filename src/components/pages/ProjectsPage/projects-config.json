@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "id": "random-word-pair-generator",
+      "heading": "Random Word Pair Generator",
+      "hrefDemo": "https://taco-tues-on-a-fri.github.io/random-username-generator/",
+      "hrefRepo": "https://github.com/taco-tues-on-a-fri/random-username-generator",
+      "body": "Create random two word phrases",
+      "imageUrl": "https://sticky-haircut.s3.us-east-2.amazonaws.com/static/docs/random-username-generator/screenshot-list-of-words.png",
+      "imageAlt": "Screenshot word pair list"
+    },
+    {
+      "id": "react-hooks-drag-n-drop",
+      "heading": "React Hooks Drag n' Drop",
+      "hrefDemo": "https://heuristic-archimedes-ef8be8.netlify.app/",
+      "hrefRepo": "https://github.com/taco-tues-on-a-fri/react-hooks-drag-n-drop",
+      "body": "Drag and drop to sort the cats",
+      "imageUrl": "https://sticky-haircut.s3.us-east-2.amazonaws.com/static/docs/react-hooks-drag-n-drop/screenshot-app.png",
+      "imageAlt": "Screenshot app landing page"
+    }
+  ]
+}
