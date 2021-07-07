@@ -36,10 +36,14 @@ const Card: FC<CardProps> = ({ configObject }) => {
           <p className="project-card--content--body">{body}</p>
           <div className="flex space-x-2">
             <p className="project-card--content--link">
-              <a href={hrefDemo}>Demo</a>
+              <a target="_blank" rel="noopener noreferrer" href={hrefDemo}>
+                Demo
+              </a>
             </p>
             <p className="project-card--content--link">
-              <a href={hrefRepo}>Repo</a>
+              <a target="_blank" rel="noopener noreferrer" href={hrefRepo}>
+                Repo
+              </a>
             </p>
           </div>
         </div>
