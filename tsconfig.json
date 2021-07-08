@@ -51,7 +51,8 @@
 	"compileOnSave": false,
 	"include": [
     "src/**/*",
-    "./types"
+    "./types",
+    "**/*.config.js"
   ],
 	"exclude": ["node_modules"]
 }

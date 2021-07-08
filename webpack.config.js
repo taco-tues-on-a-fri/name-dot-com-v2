@@ -1,9 +1,10 @@
 const path = require('path')
-const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ReactRefreshTypeScript = require('react-refresh-typescript')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -27,10 +28,20 @@ const tsConfig = {
   exclude: PATH.nodeModules,
   use: [
     isDevelopment && {
-      loader: 'babel-loader',
-      options: { plugins: ['react-refresh/babel'] },
+      loader: require.resolve('babel-loader'),
+      options: { 
+        plugins: [
+          isDevelopment && require.resolve('react-refresh/babel'),
+        ] },
     },
-    'ts-loader',
+    {
+      loader: require.resolve('ts-loader'),
+      options: {
+        getCustomTransformers: () => ({
+          before: isDevelopment ? [ReactRefreshTypeScript()] : [],
+        }),
+      },
+    }
   ].filter(Boolean),
 }
 
@@ -47,10 +58,11 @@ const htmlConfig = {
 }
 
 const cssConfig = {
-	test: /\.css$/,
+  test: /\.css$/i,
 	use: [
     'style-loader',
     'css-loader',
+    'postcss-loader',
 	]
 }
 
@@ -81,7 +93,6 @@ module.exports = {
     rules: [tsConfig, htmlConfig, cssConfig],
   },
   plugins: [
-    isDevelopment && new ReactRefreshPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: './public/index.html',
@@ -104,17 +115,20 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
       chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-    })
+    }),
+    isDevelopment && new webpack.HotModuleReplacementPlugin(),
+    isDevelopment && new ReactRefreshWebpackPlugin()
   ].filter(Boolean),
   cache: true,
   bail: false,
   devtool: isDevelopment ? 'eval-source-map' : false,
   devServer: {
     hot: true,
-    noInfo: true,
+    noInfo: false,
     contentBase: './dist',
     historyApiFallback: true
   },
+  target: 'web',
   stats: 'errors-only',
   performance: {
     hints: false

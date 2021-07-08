@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HeroCard } from '@components/utility/HeroCard'
-import './ContactPage.styles.css'
+// import './ContactPage.styles.css'
 
 const heroHeader = 'Contact'
 const heroSubheaderLine1 = null

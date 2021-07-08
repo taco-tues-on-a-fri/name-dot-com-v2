@@ -30,13 +30,15 @@ export const HomePage: FC = () => {
   const { t } = useTranslation()
 
   return (
-    <section className="page__hero-section">
-      <HeroCard
-        header={stringJson.heroHeader}
-        subheaderLine1={stringJson.heroSubheaderLine1}
-        subheaderLine2={stringJson.heroSubheaderLine2}
-        buttonConfigArrayOfObjects={buttonConfigArrayOfObjects}
-      />
-    </section>
+    <main>
+      <section className="page__hero-section">
+        <HeroCard
+          header={stringJson.heroHeader}
+          subheaderLine1={stringJson.heroSubheaderLine1}
+          subheaderLine2={stringJson.heroSubheaderLine2}
+          buttonConfigArrayOfObjects={buttonConfigArrayOfObjects}
+        />
+      </section>
+    </main>
   )
 }

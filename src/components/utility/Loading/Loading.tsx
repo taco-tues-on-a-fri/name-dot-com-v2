@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import './styles.css'
+// import './styles.css'
 
 export type LoadingProps = {
   text?: string

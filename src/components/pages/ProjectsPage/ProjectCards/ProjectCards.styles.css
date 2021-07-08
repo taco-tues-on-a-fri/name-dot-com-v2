@@ -1,0 +1,23 @@
+.project-card {
+  @apply flex flex-col rounded-lg shadow-lg overflow-hidden;
+}
+
+.project-card--image {
+  @apply h-48 w-full object-cover;
+}
+
+.project-card--content {
+  @apply flex-1 bg-white p-6 flex flex-col justify-between border-t-2 border-gray-100;
+}
+
+.project-card--content--heading {
+  @apply text-xl font-semibold text-gray-900;
+}
+
+.project-card--content--body {
+  @apply mt-3 text-base text-gray-500;
+}
+
+.project-card--content--link {
+  @apply text-sm font-medium text-blue-600 hover:underline;
+}
