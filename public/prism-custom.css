@@ -51,7 +51,7 @@ pre[class*='language-'] {
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
   color: white;
-  background: 	#282C34;
+  background: #282c34;
 }
 
 :not(pre) > code[class*='language-'] {
@@ -88,7 +88,7 @@ pre[class*='language-'] {
 .token.tag,
 .token.operator,
 .token.keyword {
-  color: #FFDC93;
+  color: #ffdc93;
 }
 
 .token.boolean {
