@@ -17,6 +17,15 @@
       "body": "Drag and drop to sort the cats",
       "imageUrl": "https://sticky-haircut.s3.us-east-2.amazonaws.com/static/docs/react-hooks-drag-n-drop/screenshot-app.png",
       "imageAlt": "Screenshot app landing page"
+    },
+    {
+      "id": "vue-single-page-performance",
+      "heading": "Vue Single Page Performance Tester",
+      "hrefDemo": "https://taco-tues-on-a-fri.github.io/vue-single-page-performance/index.html",
+      "hrefRepo": "https://github.com/taco-tues-on-a-fri/vue-single-page-performance",
+      "body": "Vue single page template for testing the performance of functions",
+      "imageUrl": "https://sticky-haircut.s3.us-east-2.amazonaws.com/static/docs/vue-single-page-performance/screenshot-computed.png",
+      "imageAlt": "Screenshot performance data"
     }
   ]
 }
