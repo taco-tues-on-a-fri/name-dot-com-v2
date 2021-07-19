@@ -2,7 +2,7 @@
   "plugins": [
     ["prismjs", {
         "languages": ["javascript", "css", "markup", "html", "svg", "jsx", "tsx", "ts" ],
-        "plugins": ["line-numbers"],
+        "plugins": ["line-numbers", "prism-toolbar", "prism-copy-to-clipboard"],
         // "theme": "twilight",
         "theme": "tomorrow",
         "css": true
