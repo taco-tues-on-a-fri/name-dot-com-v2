@@ -11,15 +11,15 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 const resolve = path.resolve.bind(__dirname)
 
 const PATH = {
-	root: resolve('./'),
-	components: resolve('./src/components'),
-	dist: resolve('./dist'),
-	i18n: resolve('./src/i18n'),
-	lib: resolve('./src/lib'),
-	nodeModules: resolve('./node_modules'),
-	public: resolve('./public'),
-	src: resolve('./src'),
-	utilities: resolve('./src/lib/utilities'),
+  root: resolve('./'),
+  components: resolve('./src/components'),
+  dist: resolve('./dist'),
+  i18n: resolve('./src/i18n'),
+  lib: resolve('./src/lib'),
+  nodeModules: resolve('./node_modules'),
+  public: resolve('./public'),
+  src: resolve('./src'),
+  utilities: resolve('./src/lib/utilities'),
 }
 
 const tsConfig = {
@@ -29,10 +29,9 @@ const tsConfig = {
   use: [
     isDevelopment && {
       loader: require.resolve('babel-loader'),
-      options: { 
-        plugins: [
-          isDevelopment && require.resolve('react-refresh/babel'),
-        ] },
+      options: {
+        plugins: [isDevelopment && require.resolve('react-refresh/babel')],
+      },
     },
     {
       loader: require.resolve('ts-loader'),
@@ -41,29 +40,25 @@ const tsConfig = {
           before: isDevelopment ? [ReactRefreshTypeScript()] : [],
         }),
       },
-    }
+    },
   ].filter(Boolean),
 }
 
 const htmlConfig = {
-	test: /\.html$/,
-	use: [
-		{
-			loader: 'html-loader',
-			options: {
-				minimize: true
-			}
-		}
-	]
+  test: /\.html$/,
+  use: [
+    {
+      loader: 'html-loader',
+      options: {
+        minimize: true,
+      },
+    },
+  ],
 }
 
 const cssConfig = {
   test: /\.css$/i,
-	use: [
-    'style-loader',
-    'css-loader',
-    'postcss-loader',
-	]
+  use: ['style-loader', 'css-loader', 'postcss-loader'],
 }
 
 const minifyConfig = {
@@ -76,7 +71,7 @@ const minifyConfig = {
   keepClosingSlash: true,
   minifyJS: true,
   minifyCSS: true,
-  minifyURLs: true
+  minifyURLs: true,
 }
 
 module.exports = {
@@ -87,7 +82,7 @@ module.exports = {
     filename: isDevelopment ? '[name].js' : '[name].[chunkhash].bundle.js',
     sourceMapFilename: isDevelopment ? '[name].bundle.map' : '[name].[chunkhash].bundle.map',
     chunkFilename: isDevelopment ? '[name].chunk.js' : '[name].[chunkhash].chunk.js',
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [tsConfig, htmlConfig, cssConfig],
@@ -97,27 +92,27 @@ module.exports = {
       filename: './index.html',
       template: './public/index.html',
       inject: true,
-      ...(isDevelopment ? {} : { minify: minifyConfig })
+      ...(isDevelopment ? {} : { minify: minifyConfig }),
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production')
+        NODE_ENV: JSON.stringify(isDevelopment ? 'development' : 'production'),
       },
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: 'public/',
-          to: 'public/'
-        }
-      ]
+          to: 'public/',
+        },
+      ],
     }),
     new MiniCssExtractPlugin({
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
     }),
     isDevelopment && new webpack.HotModuleReplacementPlugin(),
-    isDevelopment && new ReactRefreshWebpackPlugin()
+    isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
   cache: true,
   bail: false,
@@ -126,12 +121,12 @@ module.exports = {
     hot: true,
     noInfo: false,
     contentBase: './dist',
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   target: 'web',
   stats: 'errors-only',
   performance: {
-    hints: false
+    hints: false,
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
@@ -143,7 +138,7 @@ module.exports = {
       '@public': PATH.public,
       '@src': PATH.src,
       '@utilities': PATH.utilities,
-      },
-    modules: ['src', 'node_modules']
+    },
+    modules: ['src', 'node_modules'],
   },
 }
